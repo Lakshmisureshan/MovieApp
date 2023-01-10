@@ -13,5 +13,11 @@ namespace CinemaApp.Models
         public string ProfilePicture { get; set; }
         public string FullName { get; set; }
         public string Bio { get; set; }
+        //Realtionships 
+
+        public  List<Movie> Movies { get; set; }
+
+
+
     }
 }
