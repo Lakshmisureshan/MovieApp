@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CinemaApp
 {
@@ -26,8 +28,9 @@ namespace CinemaApp
         public void ConfigureServices(IServiceCollection services)
         {
             //Dbcontext configuration
-            services.AddDbContext<AppDbContext>();
 
+            //DbContext configuration
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
